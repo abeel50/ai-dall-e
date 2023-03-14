@@ -35,13 +35,13 @@ router.route('/').post(async (req, res) => {
         const newPost = await Post.create({
             name,
             prompt,
-            photo: photoUrl
+            photo: photoUrl.url
         });
 
         res.status(200).json({ success: true, data: newPost });
 
     } catch (error) {
-        console.log(error);
+        console.log('line 45', error);
         res.status(500).json({ success: false, message: error });
     }
 });
