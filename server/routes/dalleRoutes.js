@@ -9,15 +9,10 @@ const router = express.Router();
 
 const configuration = new Configuration({
     apiKey: process.env.OPEN_API_KEY,
-    organization: "org-du7B2TZHziiIFL2OkYZdOpm1",
-
+    organization: process.env.OPEN_AI_ORGANIZATION,
 })
 
 const openai = new OpenAIApi(configuration);
-
-router.route('/').get((req, res) => {
-    res.send('Hello from Dall-e');
-})
 
 router.route('/').post(async (req, res) => {
     try {
